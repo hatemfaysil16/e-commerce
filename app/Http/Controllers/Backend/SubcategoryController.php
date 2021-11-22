@@ -96,6 +96,9 @@ class SubcategoryController extends Controller
         return view('backend.category.sub_subcategory_view',compact('SubSubcategory','category'));     
     }
 
+
+
+
     public function GetSubCategory($category_id)
     {
 
@@ -103,6 +106,12 @@ class SubcategoryController extends Controller
         ->orderBy('subcategory_name_en','ASC')->get();
      	return json_encode($subcat);
     }
+
+    public function GetSubSubCategory($subcategory_id){
+
+        $subsubcat = SubSubCategory::where('subcategory_id',$subcategory_id)->orderBy('subsubcategory_name_en','ASC')->get();
+        return json_encode($subsubcat);
+     }
 
 
     public function SubSubcategoryStore(Request $request)

@@ -40,7 +40,7 @@ Route::group(['prefix'=> 'admin', 'middleware'=>['admin:admin']], function(){
 
 
 Route::middleware(['auth:admin'])->group(function () {
-    
+
 
     Route::middleware(['auth:admin', 'verified'])->get('/admin/dashboard', function () {
         return view('admin.index');
@@ -85,7 +85,7 @@ Route::post('/user/password/update', [IndexController::class, 'UserPasswordUpdat
 
 
 
-//Admin brand All Routes 
+//Admin brand All Routes
 Route::group(['prefix'=> 'brand', 'middleware'=>['auth:admin']], function(){
     Route::get('/view', [BrandController::class, 'BrandView'])->name('all.brand');
 
@@ -99,7 +99,7 @@ Route::group(['prefix'=> 'brand', 'middleware'=>['auth:admin']], function(){
 });
 
 
-//Admin Category All Routes 
+//Admin Category All Routes
 
 Route::group(['prefix'=> 'category', 'middleware'=>['auth:admin']], function(){
 
@@ -113,7 +113,7 @@ Route::group(['prefix'=> 'category', 'middleware'=>['auth:admin']], function(){
 
     Route::get('/delete/{id}', [CategoryController::class, 'categoryDelete'])->name('category.delete');
 
-//Admin Sub Category All Routes 
+//Admin Sub Category All Routes
 
     Route::get('/sub/view', [SubcategoryController::class, 'SubcategoryView'])->name('all.subcategory');
 
@@ -126,7 +126,7 @@ Route::group(['prefix'=> 'category', 'middleware'=>['auth:admin']], function(){
     Route::get('/sub/delete/{id}', [SubcategoryController::class, 'subcategoryDelete'])->name('subcategory.delete');
 
 
-//Admin Sub->Sub Category All Routes 
+//Admin Sub->Sub Category All Routes
 
     Route::get('/sub/sub/view', [SubcategoryController::class, 'SubSubcategoryView'])->name('all.SubSubcategory');
 
@@ -144,7 +144,7 @@ Route::group(['prefix'=> 'category', 'middleware'=>['auth:admin']], function(){
 
 });
 
-//Admin brand All Routes 
+//Admin brand All Routes
 Route::group(['prefix'=> 'product', 'middleware'=>['auth:admin']], function(){
 
 Route::get('/add', [ProductController::class, 'AddProduct'])->name('add.product');
@@ -168,30 +168,36 @@ Route::get('/inactive/{id}', [ProductController::class, 'ProductInactive'])->nam
 Route::get('/active/{id}', [ProductController::class, 'ProductActive'])->name('product.active');
 
 Route::get('/delete/{id}', [ProductController::class, 'ProductDelete'])->name('product.delete');
- 
+
 });
 
 
 
 
-// Admin Slider All Routes 
+// Admin Slider All Routes
 
 Route::group(['prefix'=> 'slider', 'middleware'=>['auth:admin']], function(){
 
 
     Route::get('/view', [SliderController::class, 'SliderView'])->name('manage-slider');
-    
+
     Route::post('/store', [SliderController::class, 'SliderStore'])->name('slider.store');
-    
+
     Route::get('/edit/{id}', [SliderController::class, 'SliderEdit'])->name('slider.edit');
-    
+
     Route::post('/update', [SliderController::class, 'SliderUpdate'])->name('slider.update');
-    
+
     Route::get('/delete/{id}', [SliderController::class, 'SliderDelete'])->name('slider.delete');
-    
+
     Route::get('/inactive/{id}', [SliderController::class, 'SliderInactive'])->name('slider.inactive');
-    
+
     Route::get('/active/{id}', [SliderController::class, 'SliderActive'])->name('slider.active');
-    
+
 });
-    
+
+
+
+// Frontend Product Details Page url
+Route::get('/product/details/{id}/{slug}', [IndexController::class, 'ProductDetails']);
+
+

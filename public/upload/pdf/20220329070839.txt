@@ -1,0 +1,7 @@
+error with jwt slove
+
+php artisan jwt:secret
+
+php artisan config:clear
+
+php artisan cache:clear 

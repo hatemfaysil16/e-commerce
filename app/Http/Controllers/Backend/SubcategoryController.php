@@ -14,7 +14,7 @@ class SubcategoryController extends Controller
     {
         $category = Category::orderBy('category_name_hin','ASC')->get();
     //  return   $a =  Subcategory::first()->category;die;
-        $subcategory = Subcategory::latest()->get();        
+        $subcategory = Subcategory::latest()->get();
         return view('backend.category.subcategory_view',compact('subcategory','category'));
     }
 
@@ -27,8 +27,8 @@ class SubcategoryController extends Controller
             'subcategory_name_hin' =>'required',
         ],[
             'category_id.required' =>'Input subcategory English Name',
-            'subcategory_name_en.required' =>'Input subcategory english Name', 
-            'subcategory_name_hin.required' =>'Input subcategory  Hindi Name', 
+            'subcategory_name_en.required' =>'Input subcategory english Name',
+            'subcategory_name_hin.required' =>'Input subcategory  Hindi Name',
         ]);
 
         Subcategory::insert([
@@ -84,7 +84,7 @@ class SubcategoryController extends Controller
             'alert-type'=>'warning',
         );
         return redirect()->route('all.subcategory')->with($notification);
-    } 
+    }
 
 
     ///////////////////////// this for SUB->SUBCATEGORY ////////////////////////////
@@ -92,8 +92,8 @@ class SubcategoryController extends Controller
     public function SubSubcategoryView()
     {
         $category = Category::orderBy('category_name_en','ASC')->get();
-        $SubSubcategory = SubSubCategory::latest()->get();        
-        return view('backend.category.sub_subcategory_view',compact('SubSubcategory','category'));     
+        $SubSubcategory = SubSubCategory::latest()->get();
+        return view('backend.category.sub_subcategory_view',compact('SubSubcategory','category'));
     }
 
 
@@ -125,8 +125,8 @@ class SubcategoryController extends Controller
         ],[
             'category_id.required' =>'Input subcategory English Name',
             'subcategory_id.required' =>'Input sub category English Name',
-            'SubSubcategory_name_en.required' =>'Input SubSubcategory english Name', 
-            'SubSubcategory_name_hin.required' =>'Input SubSubcategory  Hindi Name', 
+            'SubSubcategory_name_en.required' =>'Input SubSubcategory english Name',
+            'SubSubcategory_name_hin.required' =>'Input SubSubcategory  Hindi Name',
         ]);
 
         SubSubCategory::insert([
@@ -148,16 +148,16 @@ class SubcategoryController extends Controller
     public function SubSubcategoryEdit($id)
     {
         $category = Category::orderBy('category_name_en','ASC')->get();
-        $subcategories = SubCategory::orderBy('subcategory_name_en','ASC')->get();    
-        $SubSubcategory = SubSubCategory::findOrFail($id);        
-        return view('backend.category.sub_subcategory_edit',compact('SubSubcategory','category','subcategories'));      
+        $subcategories = SubCategory::orderBy('subcategory_name_en','ASC')->get();
+        $SubSubcategory = SubSubCategory::findOrFail($id);
+        return view('backend.category.sub_subcategory_edit',compact('SubSubcategory','category','subcategories'));
     }
 
     public function SubSubcategoryUpdate(Request $request)
     {
         $cat_id = $request->id;
 
-        
+
         SubSubCategory::find($cat_id)->update([
             'category_id'=>$request->category_id,
             'subcategory_id'=>$request->subcategory_id,
@@ -181,6 +181,6 @@ class SubcategoryController extends Controller
             'alert-type'=>'warning',
         );
         return redirect()->route('all.SubSubcategory')->with($notification);
-    } 
-    
+    }
+
 }

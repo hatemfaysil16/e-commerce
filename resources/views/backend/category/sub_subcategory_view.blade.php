@@ -1,10 +1,10 @@
 @extends('admin.admin_master')
 @section('admin')
- 
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-  
-  
+
+
   <!-- Content Wrapper. Contains page content -->
 	  <div class="container-full">
 		<!-- Content Header (Page header) -->
@@ -55,7 +55,7 @@
 				</div>
 				<!-- /.box-body -->
 			  </div>
-			  <!-- /.box -->         
+			  <!-- /.box -->
 	    	</div>
 
             {{--  -------------------- Add category Page -------------------  --}}
@@ -68,7 +68,7 @@
                    <!-- /.box-header -->
                    <div class="box-body">
                        <div class="table-responsive">
-                         
+
 
 <form method="POST" action="{{route('SubSubcategory.store')}}" >
     @csrf
@@ -80,7 +80,7 @@
             <select name="category_id"  class="form-control" aria-invalid="false">
                 <option value="" selected="" disabled="">Select Category</option>
                 @foreach ($category as $item)
-                <option value="{{$item->id}}">{{$item->category_name_en}}</option>                                
+                <option value="{{$item->id}}">{{$item->category_name_en}}</option>
                 @endforeach
             </select>
             @error('category_id')
@@ -103,11 +103,11 @@
                     <div class="help-block"></div></div>
                 </div>
 
-                    
+
                 <div class="form-group">
                     <h5> Sub - SubCategory English <span class="text-danger">*</span></h5>
                     <div class="controls">
-                    <input type="text" name="SubSubcategory_name_en" 
+                    <input type="text" name="SubSubcategory_name_en"
                     class="form-control" required="" >
                     @error('SubSubcategory_name_en')
                     <span class="text-danger">{{$message}}</span>
@@ -115,17 +115,17 @@
                 </div>
 
 
-                
+
                 <div class="form-group">
                     <h5> Sub - SubCategory Hindi <span class="text-danger">*</span></h5>
                     <div class="controls">
-                    <input type="text" name="SubSubcategory_name_hin" 
+                    <input type="text" name="SubSubcategory_name_hin"
                     class="form-control" required="" >
                     @error('SubSubcategory_name_hin')
                     <span class="text-danger">{{$message}}</span>
                     @enderror
                 </div>
-                
+
         </div>
 
 
@@ -144,18 +144,18 @@
                    </div>
                    <!-- /.box-body -->
                  </div>
-                 <!-- /.box -->         
+                 <!-- /.box -->
             </div>
 
 
 
-            
+
 			<!-- /.col -->
 		  </div>
 		  <!-- /.row -->
 		</section>
 		<!-- /.content -->
-	  
+
 	  </div>
 
     <script type="text/javascript">

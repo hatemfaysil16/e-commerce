@@ -201,3 +201,5 @@ Route::group(['prefix'=> 'slider', 'middleware'=>['auth:admin']], function(){
 Route::get('/product/details/{id}/{slug}', [IndexController::class, 'ProductDetails']);
 
 
+
+Route::get('/product/tag/{tag}', [IndexController::class, 'TagWiseProduct']);

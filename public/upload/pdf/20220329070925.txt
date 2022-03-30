@@ -1,0 +1,10 @@
+edit with project training ar
+1-edit with project for forntend
+2-hide with media center with project 
+3-hide search with home page 
+4-fixed buge in dashboard with auth
+
+edit with project beatuy
+1-edit all project for forntend
+2-hide with media center with project 
+3-fixed search certificaty and show message about no data
